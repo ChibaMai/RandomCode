@@ -1,0 +1,61 @@
+html, body {
+  height: 100vh;
+}
+
+body {
+  font: 14px/30px "Open Sans", "Helvetica Neue", "Helvetica", "Hiragino Sans GB", "Microsoft YaHei", "Source Han Sans CN", "WenQuanYi Micro Hei", Arial, sans-serif;
+  /* background-image: url('https://yangzj1992-1251901721.cos.ap-beijing.myqcloud.com/images/TKL/wall-2.jpg'); */
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  transition: 380ms
+}
+
+.random-code {
+  background-color: rgb(255, 255, 255, 0.7);
+  padding: 15px 20px;
+  border-radius: 5px;
+}
+
+.password {
+  display: flex;
+  flex-flow: row-reverse;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.characters-used {
+  user-select: none;
+}
+
+.characters-used label {
+  margin: 0 15px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.lengths {
+  display: flex;
+}
+
+.result {
+  position: relative;
+}
+
+.copy {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: none;
+}
+
+.information {
+  font-size: 16px;
+  margin-top: 15px;
+  text-align: center;
+}
+
+#success {
+  display: none;
+}

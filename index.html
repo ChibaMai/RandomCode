@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Random Code</title>
+  <!-- jsdelivr -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/init_style_css@1.0.0/init.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  <!--  -->
+  <link rel="stylesheet" href="/css/RandomCode.css">
+</head>
+<body>
+  <div class="container random-code">
+    <h1>随机密码生成器</h1>
+    <div class="password">
+      <button type="button" class="btn btn-success generate" id="generate">生成密码</button>
+      <!-- 密码长度 -->
+      <div class="lengths">
+        <select class="form-control input-sm" id="ss_cd"></select>&nbsp;位
+      </div>
+      <!-- 字符设置 -->
+      <div class="characters-used" id="characters-used">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" checked id="capital"> A-Z
+        </label>
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" checked id="lowerCase"> a-z
+        </label>
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" checked id="number"> 0-9
+        </label>
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" id="symbol"> !@#$%^&*~?`+=_-
+        </label>
+      </div>
+    </div>
+    <!-- 生成结果 -->
+    <div class="result">
+      <input type="text" class="form-control input-lg" placeholder="Show generated password" id="result" readonly>
+      <button type="button" class="btn btn-success copy" id="copy">复制</button>
+    </div>
+    <!-- Prompt information -->
+    <div class="information">
+      <p id="CalculatedLength"></p>
+    </div>
+    <div class="alert alert-success" id="success">
+      <strong>成功!</strong> 复制成功
+    </div>
+  </div>
+  <script src="/js/RandomCode.js"></script>
+</body>
+</html>
