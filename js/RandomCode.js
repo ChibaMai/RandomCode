@@ -1,17 +1,22 @@
-// 获取所有元素
+// 获取生成密码的长度
 let selectOption = $("#ss_cd");
+// 生成密码
 let generate = $("#generate");
+// 获取生成的结果
 let result = $("#result");
+// 提示信息
 let CalculatedLength = $("#CalculatedLength");
 let copy = $("#copy");
+// 成功提示
 let success = $("#success");
 
+// 密码状态
 let options = {
   capital: true,
   lowerCase: true,  
   number: true,
   symbol: false,
-  selectValue: 16,
+  selectValue: selectOption.val(),
   passwords: '',
 };
 
@@ -28,8 +33,13 @@ let password = {
   symbol: ['!', '@', '#', '$', '%', '^', '&', '*', '~', '?', '`', '+', '=', '_', '-']
 }
 
-selectOptionvalue(selectOption, 1, 99, 16);
-selectValue(selectOption);
+// selectOptionvalue(selectOption, 1, 99, 16);
+// selectValue(selectOption.val());
+// selectOption 添加鼠标移除事件
+$(selectOption).blur(function (e) {
+  options.selectValue = selectOption.val()
+});
+
 randomDesktopBackground(200);
 
 // 获取 字符设置 options 状态
@@ -150,18 +160,18 @@ function selectValue(el) {
  * @param {defaults} 设置默认值
  * @returns 仅限 <option value="1">1</option> 模式使用
  */
-function selectOptionvalue(el, startingValue, endValue, defaults) {
-  let html = '';
+// function selectOptionvalue(el, startingValue, endValue, defaults) {
+//   let html = '';
   
-  // <option value="1">1</option>
-  for (let i = startingValue; i <= endValue; i++){
-    html += `<option value="${i}">${i}</option>`;
-  }
+//   // <option value="1">1</option>
+//   for (let i = startingValue; i <= endValue; i++){
+//     html += `<option value="${i}">${i}</option>`;
+//   }
   
-  el[0].innerHTML = html;
+//   // el[0].innerHTML = html;
 
-  // 设置默认值
-  $(`option[value='${defaults}']`).prop("selected",true);
+//   // 设置默认值
+//   $(`option[value='${defaults}']`).prop("selected",true);
 
-  return html;
-}
+//   return html;
+// }
