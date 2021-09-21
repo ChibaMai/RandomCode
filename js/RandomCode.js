@@ -16,7 +16,7 @@ let options = {
   lowerCase: true,  
   number: true,
   symbol: false,
-  selectValue: selectOption.val(),
+  selectValue: 16,
   passwords: '',
 };
 
@@ -28,18 +28,17 @@ const randomFunc = {
   symbol: getRandomSymbol
 }
 
-// 密码
+// 特殊字符串密码
 let password = {
   symbol: ['!', '@', '#', '$', '%', '^', '&', '*', '~', '?', '`', '+', '=', '_', '-']
 }
 
-// selectOptionvalue(selectOption, 1, 99, 16);
-// selectValue(selectOption.val());
-// selectOption 添加鼠标移除事件
+// selectOption input blur 添加鼠标移除事件
 $(selectOption).blur(function (e) {
   options.selectValue = selectOption.val()
 });
 
+// 随机生成左面背景图片
 randomDesktopBackground(200);
 
 // 获取 字符设置 options 状态
@@ -98,11 +97,6 @@ function randomDesktopBackground(num) {
 
 /**
  * 初始密码
- * @param {*} lower 
- * @param {*} upper 
- * @param {*} number 
- * @param {*} symbol 
- * @param {*} length 
  */
 function generatePassword(capital, lowerCase, number, symbol, length) {
   let generatedPassword = "";
@@ -142,36 +136,3 @@ function getRandomNumber() {
 function getRandomSymbol() {
 	return password.symbol[Math.floor(Math.random() * password.symbol.length)];
 }
-
-// select 多选框选择的数值
-function selectValue(el) {
-  $(el).click(e => {
-    options.selectValue = $('#ss_cd option:selected').text();
-
-    return options.selectValue
-  });
-}
-
-/**
- * 生成选择密码长度
- * @param {el} 写入的元素
- * @param {startingValue} 开始循环的数值
- * @param {endValue} 结束循环的数值
- * @param {defaults} 设置默认值
- * @returns 仅限 <option value="1">1</option> 模式使用
- */
-// function selectOptionvalue(el, startingValue, endValue, defaults) {
-//   let html = '';
-  
-//   // <option value="1">1</option>
-//   for (let i = startingValue; i <= endValue; i++){
-//     html += `<option value="${i}">${i}</option>`;
-//   }
-  
-//   // el[0].innerHTML = html;
-
-//   // 设置默认值
-//   $(`option[value='${defaults}']`).prop("selected",true);
-
-//   return html;
-// }
