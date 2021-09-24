@@ -60,26 +60,19 @@
   <script>
     // remove service worker cache
     "use strict";
-    // if(navigator.serviceWorker){
-    //   navigator.serviceWorker.getRegistrations().then(function(registrations) {
-    //     for(let registration of registrations) {
-    //       registration.unregister()
-    //     }
-    //   })
-    // }
-
-    // if ('serviceWorker' in navigator) {
-    //   window.addEventListener('load', () => {
-    //     navigator.serviceWorker.register('/sw.js');
-    //   });
-    // }
-
-    if (location.protocol !== 'https:' && !/localhost/.test(location.host)) {
-      location.protocol = 'https:';
-    }else{
-      navigator.serviceWorker && navigator.serviceWorker.register('/sw.js');
+    if(navigator.serviceWorker){
+      navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        for(let registration of registrations) {
+          registration.unregister()
+        }
+      })
     }
 
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
   </script>
 </body>
 </html>
