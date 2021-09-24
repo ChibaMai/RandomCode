@@ -12,6 +12,8 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
   <!--  -->
   <link rel="stylesheet" href="/css/RandomCode.css">
+  <!-- pwa -->
+  <link rel="manifest" href="/manifest.json">
 </head>
 <body>
   <div class="container random-code">
@@ -53,5 +55,24 @@
     </div>
   </div>
   <script src="/js/RandomCode.js"></script>
+  <script async src=""></script>     
+  <script>
+    // remove service worker cache
+    "use strict";
+    if(navigator.serviceWorker){
+      navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        for(let registration of registrations) {
+          registration.unregister()
+        }
+      })
+    }
+  </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>
 </body>
 </html>

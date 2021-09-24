@@ -1,0 +1,21 @@
+{
+  "name": "Random Code",
+  "short_name": "Random Code",
+  "description": "Randomly generated cipher",
+  "display": "standalone",
+  "start_url": "/",
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "icons": [ 
+    {
+      "src": "/images/android-chrome-64x64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/android-chrome-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }
+  ]
+}
