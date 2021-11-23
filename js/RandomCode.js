@@ -35,7 +35,12 @@ let password = {
 
 // selectOption input blur 添加鼠标移除事件
 $(selectOption).blur(function (e) {
-  options.selectValue = selectOption.val()
+  options.selectValue = selectOption.val();
+  
+  if (checkRate(options.selectValue) === false) {
+    options.selectValue = 16;
+    selectOption.val(options.selectValue)
+  }
 });
 
 // 随机生成左面背景图片
@@ -86,6 +91,14 @@ $(copy).click(function () {
     $(success).stop().fadeOut(380);
   }, 1000);
 });
+
+function checkRate(input) { 
+  var rep = /^[0-9]+.?[0-9]*/;
+
+  if (!rep.test(input)) {
+    return false
+  } 
+}
 
 // 随机桌面背景
 function randomDesktopBackground(num) {
